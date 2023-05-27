@@ -1,0 +1,157 @@
+//API's and Annotations Assignment.....
+
+
+Q.1 Program to display current date and time in java.
+Answer: 
+import java.time.LocalDateTime;
+/**
+ * Utilities1
+ */
+public class Utilities1 {
+
+    public static void main(String[] args) {
+       
+                java.util.Date utilDate=new java.util.Date();
+                System.out.println(utilDate);
+            
+            }
+}
+//Output:
+Sun Apr 09 15:15:12 IST 2023
+
+Q.2 Write a program to convert a date to a string in the format “MM/dd/yyyy”.
+Answer: 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+public class Utilities1 {
+
+    public static void main(String[] args) {
+       LocalDate date = LocalDate.of(2023,4, 9);
+       
+       DateTimeFormatter formatter=DateTimeFormatter.ofPattern("MM/dd/yyyy");
+       String formattedDate=date.format(formatter);
+       System.out.println("Formatted Date is: "+ formattedDate);
+    
+           }
+}
+
+//Output:
+Formatted Date is: 04/09/2023
+      
+
+
+
+ Q.3 What is the difference collections and streams? Explain with an Example
+Answer:The main difference between collections and streams in Java is that collections are data structures that store and manipulate a group of objects, while streams are a sequence of elements that can be processed in a functional style.
+
+Here’s an example to illustrate the difference between Collections and Streams in Java:
+
+Streams Example:
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Utilities1
+ */
+public class Utilities1 {
+
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(45);
+        numbers.add(42);
+        numbers.add(37);
+        numbers.add(94);
+        numbers.add(55);
+        
+        int sum = numbers.stream()
+                 .mapToInt(Integer::intValue)
+                 .sum();
+
+       System.out.println("Sum of all numbers: " + sum);
+
+    }
+}
+//Output:
+Sum of all numbers: 273
+
+Collections Example:
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Utilities1
+ */
+public class Utilities1 {
+
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(20);
+        numbers.add(30);
+        numbers.add(40);
+        numbers.add(50);
+        
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+        
+        System.out.println("Sum of all numbers: " + sum);
+    }
+}        
+//Output:
+Sum of all numbers: 150
+
+Q.4 What is the enums in java? Explain with an example
+Answer: 
+Enums are use to define a group of named constants.
+
+Enum is a special data type used to define a set of constants with predefined values. Enums are often used to represent a fixed set of values that don't change, such as days of the week, months of the year, or error codes.
+
+Enums are used to represent a collection of related constants that have a common purpose. Each constant in an
+           enum is an instance of the enum type, and they are typically defined as public               .          static final fields.
+Example to define an enum in java:
+
+class EnumDemo{
+public enum DayOfWeek {
+MONDAY,
+TUESDAY,
+WEDNESDAY,
+THURSDAY,
+FRIDAY,
+SATURDAY,
+SUNDAY
+}
+public static void main(String args[]){
+
+for(DayOfWeek d:DayOfWeek.values())
+System.out.println(d);
+}
+}
+
+Q.5 What are in built annotations in java?
+Answer: Java provides several built-in annotations that can be used to add metadata and provide additional information about classes, methods, fields, and other program elements. Here are some of the most commonly used built-in annotations in Java:
+
+@Override: This annotation is used to indicate that a method in a subclass overrides a method in its superclass.
+
+@Deprecated: This annotation is used to indicate that a class, method, or field is no longer recommended for use and may be removed in future versions of the API.
+
+@SuppressWarnings: This annotation is used to suppress compiler warnings for a particular code element or a specific type of warning.
+
+@FunctionalInterface: This annotation is used to indicate that an interface is a functional interface and has a single abstract method that can be used as a lambda expression.
+
+@SafeVarargs: This annotation is used to suppress compiler warnings for unsafe operations involving varargs parameters.
+
+@Retention: This annotation is used to specify the retention policy for an annotation, such as whether it should be retained at runtime or only in the source code.
+
+@Target: This annotation is used to specify the target elements for an annotation, such as classes, methods, fields, or parameters.
+
+@Documented: This annotation is used to indicate that an annotation should be included in the Javadoc documentation.
+
+@Inherited: This annotation is used to indicate that an annotation should be inherited by subclasses.
+
+
+
+

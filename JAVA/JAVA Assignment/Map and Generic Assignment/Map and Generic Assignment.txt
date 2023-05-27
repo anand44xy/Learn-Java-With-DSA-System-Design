@@ -1,0 +1,39 @@
+//Map and Generic Assignment.......
+
+Q.1 What is a map in java?
+Answer: Map is a collection of key-value pairs, where each key is unique and is associated with a value.
+
+Q.2 What are the commonly used implementations of map in java?
+Answer: HashMap, TreeMap, LinkedHashMap and ConcurrentHashMap
+
+Q.3 What is the difference between HashMap ans TreeMap?
+Answer: HashMap and TreeMap are two commonly used data structures in Java that allow you to store and retrieve key-value pairs.
+The main difference between HashMap and TreeMap is the underlying data structure used to store the key-value pairs.
+HashMap uses a hash table to store the key-value pairs, while TreeMap uses a red-black tree.
+HashMap provides constant time O(1) performance for most operations, while TreeMap provides logarithmic time O(log n) performance.
+HashMap does not maintain the order of the entries, while TreeMap maintains the order of the keys according to their natural ordering or a specified Comparator.
+
+Q.4 How do you check if a key exists in a map in java ?
+Answer: By using containsKey() method or the get() method we check if a key exists in a map. containsKey() returns ‘true’ if the map contains the specified key, and ‘false’ otherwise. 
+
+Q.5 What are generics in java?
+Answer: Generics is a feature in java that allows classes, interfaces and methods to be parameterized with one or more types.
+Generics are implemented using type parameters, which are specified inside angle brackets <>.
+
+Q.6 What are the benefits of using Generics in java?
+Answer:  Generics provide type safety, code reusability, code readability, performance improvement, and better API design. They are an important feature of Java that can help you write better, more efficient, and more maintainable code.
+
+Q.7 What is generic class in java?
+Answer: Generic class work with different types of data. It is defines using angular brackets <> , which represent the type of data being used.
+
+Q.8 what is type parameter in java Generics?
+Answer: Type parameters are an important part of Java Generics, and they provide a flexible way to create generic classes and methods that can work with different types of objects.
+
+Q.9 What is a Generic Methods in java?
+Answer: Generic methods are a powerful feature of Java Generics that allow you to write methods that can work with any type of object, making your code more flexible and reusable.
+
+Q.10 What is the difference between ArrayList and ArrayList<T> ?
+Answer: When you use ArrayList, you are using the raw type of the ArrayList class, which means that you are not specifying the type of objects that will be stored in the list. This can lead to type safety issues and may result in runtime errors.
+
+Therefore, it is always recommended to use the parameterized type ArrayList<T> over the raw type ArrayList to ensure type safety and avoid runtime errors.
+
