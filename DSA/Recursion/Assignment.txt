@@ -1,0 +1,154 @@
+/*
+ * Q1 : Given an integer, find out the sum of its digits using recursion in java.
+Input: n= 1234
+Output: 10
+Explanation: 1+2+3+4=10 
+Answer:
+ */
+package Recursion;
+
+public class RecursionProblem1 {
+    public static int CalSum(int n){
+        if(n==0){
+            return 0;
+        }
+        else{
+            int sum=n%10+CalSum(n/10);
+            return sum;
+        }
+    }
+public static void main(String[] args) {
+    int n=1234;
+    System.out.println("Sum of given number is: "+CalSum(n));
+}    
+}
+
+package Recursion;
+
+/*
+Q2: Given a number n. Find the sum of natural numbers till n but with alternate signs.
+That means if n = 5 then you have to return 1-2+3-4+5 = 3 as your answer.
+Constraints : 0<=n<=1e6
+Input1 : n = 10
+Output 1 : -5
+Explanation : 1-2+3-4+5-6+7-8+9-10 = -5
+Input 2 : n = 5
+Output 2 : 3
+Answer:
+*/
+public class RecursionProblem2 {
+    public static void main(String[] args) {
+        int n = 10;
+        int sum = calculateAlternateSum(n);
+        System.out.println("Alternate Sum: " + sum);
+    }
+
+    public static int calculateAlternateSum(int n) {
+        if (n == 1) {
+            return 1; // Base case: return 1 for n = 1
+        } else {
+            int sign = (n % 2 == 0) ? -1 : 1; // Determine the sign based on whether n is even or odd
+            return sign * n + calculateAlternateSum(n - 1); // Recursively calculate the sum
+        }
+    }
+}
+
+/*
+ * Q3: Print the max value of the array [ 13, 1, -3, 22, 5].
+ */
+package Recursion;
+
+public class RecursionProblem3 {
+    // FindMaxArray
+    public static int findMax(int[] array) {
+        return findMaxRecursive(array, 0, Integer.MIN_VALUE);
+    }
+
+    public static int findMaxRecursive(int[] array, int index, int currentMax) {
+        if (index == array.length) {
+            return currentMax; // Base case: reached the end of the array, return the current maximum
+        } else {
+            if (array[index] > currentMax) {
+                currentMax = array[index]; // Update the current maximum if the current element is greater
+            }
+            return findMaxRecursive(array, index + 1, currentMax); // Recursively check the next element
+        }
+    }
+     public static void main(String[] args) {
+        int[] array = {13, 1, -3, 22, 5};
+        int max = findMax(array);
+        System.out.println("Maximum value: " + max);
+    }
+}
+
+/*
+ * Q4 : Find the sum of the values of the array [92, 23, 15, -20, 10].
+ */
+
+package Recursion;
+
+public class RecursionProblem4 {
+    // ArraySum
+    public static int calculateSum(int[] array) {
+        return calculateSumRecursive(array, array.length - 1);
+    }
+
+    public static int calculateSumRecursive(int[] array, int index) {
+        if (index == 0) {
+            return array[0];    // Base case: if index is 0, return the element at index 0
+        } else {
+            return array[index] + calculateSumRecursive(array, index - 1); // Recursively calculate the sum
+        }
+    }
+    public static void main(String[] args) {
+        int[] array = {92, 23, 15, -20, 10};
+        int sum = calculateSum(array);
+        System.out.println("Sum of array: " + sum);
+    }
+}
+
+
+/*
+ * Q5. Given a number n. Print if it is an armstrong number or not. An armstrong number is a number if the sum
+of every digit in that number raised to the power of total digits in that number is equal to the number.
+Example : 153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153 hence 153 is an armstrong number. (Easy)
+Input1 : 153
+Output1 : Yes
+Input 2 : 134
+Output2 : No
+ */
+package Recursion;
+
+public class RecursionProblem5 {
+    // ArmstrongNumber
+    public static boolean isArmstrongNumber(int n) {
+        int originalNumber = n;
+        int numDigits = countDigits(n);
+        int sum = 0;
+
+        while (n != 0) {
+            int digit = n % 10;
+            sum += Math.pow(digit, numDigits);
+            n /= 10;
+        }
+
+        return sum == originalNumber;
+    }
+
+    public static int countDigits(int n) {
+        int count = 0;
+
+        while (n != 0) {
+            count++;
+            n /= 10;
+        }
+
+        return count;
+    } 
+    public static void main(String[] args) {
+        int n = 153;
+        boolean isArmstrong = isArmstrongNumber(n);
+        System.out.println(isArmstrong ? "Yes" : "No");
+    }
+}
+
