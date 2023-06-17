@@ -1,0 +1,38 @@
+Q.1 What is the collection framework in java?
+Answer: Collection framework is a set of classes and interfaces that provides a powerful and versatile tool for managing groups of objects.
+
+Q.2 What is the difference between ArrayList and LindedList ?
+Answer: 
+ArrayList:
+It internally uses a dynamic array to store the elements.
+Manipulation with arraylist is slow.
+Arraylist is better for storing and accessing the data.
+It provides random access.
+
+LinkedList:
+It internally uses a doubly linked list to store the elements.
+Manipulation with linkedlist is faster.
+Linkedlist is better for manipulating the data.
+It doesn’t provide random access.
+ 
+Q.3 What is the difference between an iterator and a ListItrerator?
+Answer:  Iterator is a more general interface that can be used to traverse any collection, whereas ListIterator is a more specific interface designed for traversing List collections with additional functionality such as bi-directional iteration and modifying operations.
+
+Q.4 What is the difference between Iterator and Enumeration?
+Answer: Both Iterator and Enumeration are interfaces in Java that allow you to traverse through collections of objects.
+ Iterator is more flexible and powerful than Enumeration, and it should be preferred when possible.
+Q.5 What is the difference between list and set?
+Answer:  The List anp Set both extend the collection interfaceA However, there are some differences between the two
+which are listed below.
+o The List can contain duplicate elements whereas Set includes unique items.
+o The List is an operator collection which maintains the insertion order whereas Set is an unordered collection, which does not preserve the insertion order.
+o The List interface contains a single legacy class which is Vector class whereas the Set interface poes not
+have a legacy class.
+o The List interface can allow a number of null values whereas Set interface only allows a single null value.
+
+Q.6 What is the difference between HashSet and TreeSet?
+Answer: HashSet is faster and suitable for general use cases, while TreeSet provides sorted ordering and is useful when the ordering of elements is important. However, TreeSet may have higher overhead due to its sorting algorithm and is not suitable for scenarios that require frequent additions, removals, or lookups.
+
+Q.7 What is the difference between Array and ArrayList?
+Answer: Arrays are best suited when the size of the collection is fixed, and direct access to elements is important for performance reasons. ArrayLists are more flexible and better suited for situations where the size of the collection may change or where more convenient methods for adding and removing elements are needed.
+

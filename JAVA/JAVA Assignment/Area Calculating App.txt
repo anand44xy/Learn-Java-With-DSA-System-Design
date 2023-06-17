@@ -1,0 +1,79 @@
+import java.util.Scanner;
+class Area{
+    public void UsrInput(){}
+    public void Calcualte(){}
+    float length;
+    float breath;
+    float area;
+    float side;
+    float Radius;
+}
+//Area of Rectangle
+class Rectangle extends Area{
+     public void UsrInput(){
+        System.out.println(" *Calculate Area of Rectangle* ");
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter the length of Rectangle:");
+        length=scan.nextFloat();
+        System.out.println("Enter the Breath of Rectangle");
+        breath=scan.nextFloat();
+      }
+
+     public void Calcualte(){
+        area=length*breath;
+        System.out.println("Area of Rectangle is: "+area);
+        System.out.println();
+     }
+     
+}
+
+//Area of Square
+class Square extends Area{
+     public void UsrInput(){
+        System.out.println(" *Calcualte Area of Square* ");
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter the Side of Square:");
+        side=scan.nextFloat();
+    }
+     public void Calcualte(){
+        area=side*side;
+        System.out.println("Area of Square is: "+area);
+        System.out.println();
+    }
+}
+
+
+//Area of Circle
+class Circle extends Area{
+    public void UsrInput(){
+        System.out.println(" *Calcualte Area of Circle* ");
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Enter the Radius of Circle:");
+        Radius=scan.nextFloat();
+}
+    public void Calcualte(){
+        Radius=3.14285714286f*Radius*Radius;
+        System.out.println("Area of Circle is: "+ Radius);
+     }
+    }
+
+    class DashBoard {
+    public void Display(Area ref){
+    ref.UsrInput();
+    ref.Calcualte();
+    }
+}
+
+public class AreaCalculator {
+
+    public static void main(String[] args) {
+        Rectangle r=new Rectangle();
+        Square s=new Square();
+        Circle c=new Circle();
+
+        DashBoard db=new DashBoard();
+        db.Display(r);
+        db.Display(s);
+        db.Display(c);
+    }
+}

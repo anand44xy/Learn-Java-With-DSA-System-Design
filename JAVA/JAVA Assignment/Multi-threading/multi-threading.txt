@@ -1,0 +1,138 @@
+Q.1 What do you mean by multi threading in java? Why is it important?
+Answer. Multi Threading mean that multiple tasks performed at a time.we achieve multithreading by implementing the ‘runnable’ interface directly. 
+Multi threading refers to the ability of a program to create and manage multiple threads of execution within a single process.
+Multi-threading is important in java because it introduces new challenges related to thread synchronization which must be carefully managed to avoid issues such ass deadlocks and data corruption.
+
+Q.2 What are benefits of using multithreading?
+Answer. Multithreading can be a powerful tool for improving the performance and functionality of java programs, but it must be used carefully and with proper consideration of potential issues such as thread synchronization and race conditions.
+
+There are several benefits of using multithreading in java program:
+Improved performance
+Resource sharing
+Simplified program structure 
+Better user Experience
+
+Q.3 What is thread in java?
+Answer. A thread is a very light weighted process or we can say that the smallest part of the process that allow a program to operate more efficiently by running multiple task.
+In short, Thread is a process which performes multiple task at a time.
+
+Q. What are two ways of implementing thread in java?
+Answer. We implementing thread by two ways:
+By extending thread class :
+            
+       public class MyThread extends Thread {
+       
+          public void run()
+           {
+               System.out.println("MyThread is running");
+            }
+        }
+
+              //  Creating and starting a new thread
+          MyThread thread = new MyThread();
+             thread.start();
+
+
+By implementing running interface:
+
+public class MyRunnable implements Runnable {
+   
+    public void run() {
+        System.out.println("MyRunnable is running");
+    }
+}
+
+// Creating a new thread and passing in a MyRunnable instance
+MyRunnable runnable = new MyRunnable();
+Thread thread = new Thread(runnable);
+
+// Starting the thread
+thread.start();
+
+Q.5 What’s the difference between thread and process?
+Answer. A process is a self-contained program with its own memory space, while a thread is a lightweight entity that runs within the memory space of a process. Processes are typically used for tasks that high isolation and security, while thread are used for tasks that require concurrency and communication with in a single program.
+
+Q.6 How can we create daemon threads?
+Answer. We can create daemon threads by setting the ‘setDaemon(true)’ method on a ‘Thread’ object before starting it. 
+Here is an example:
+
+public class MyDaemonThread implements Runnable {
+    
+    public void run() {
+        while(true) {
+            System.out.println("Daemon thread is running");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Thread t = new Thread(new MyDaemonThread());
+        t.setDaemon(true); // Set the daemon flag to true
+        t.start(); // Start the thread
+    }
+}
+
+Q. 7 what are the wait() and sleep() methods?
+Answer. ‘wait()’ is used for thread synchronization, while ‘sleep()’ is used for pausing the execution of a program.
+
+Here is an example of ‘sleep()’ method:
+
+public class SleepExample {
+    public static void main(String[] args) {
+        System.out.println("Thread is running...");
+        try {
+            Thread.sleep(5000); // pause execution for 5 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Thread has completed.");
+    }
+}
+------------------------------------------------------------------------------------------------------------------
+Here’s an example of ‘wait()’ method:
+
+public class WaitExample {
+    public static void main(String[] args) {
+        Object lock = new Object();
+        Thread t1 = new Thread(new MyThread(lock));
+        t1.start();
+        synchronized(lock) {
+            try {
+                lock.wait(); // main thread waits for t1 to complete
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("Thread t1 has completed.");
+    }
+}
+
+class MyThread implements Runnable {
+    private Object lock;
+
+    public MyThread(Object lock) {
+        this.lock = lock;
+    }
+
+    public void run() {
+        System.out.println("Thread t1 is running...");
+        // do some work
+        synchronized(lock) {
+            lock.notify(); // notify main thread that t1 has completed
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
