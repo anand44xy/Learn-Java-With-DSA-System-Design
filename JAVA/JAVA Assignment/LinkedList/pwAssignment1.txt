@@ -1,0 +1,55 @@
+/*
+ * Q1. Given a linked list and a key ‘X‘ in, the task is to check if X is present in the linked list or not.
+ * 
+    INPUT: 14->21->11->30->10, X = 14
+    OUTPUT: Yes
+   Explanation: 14 is present in the linked list
+   INPUT: 6->21->17->30->10->8, X = 13
+   OUTPUT:No
+ */
+public class pwAssignment1 {
+    class Node {
+        int data;
+        Node next;
+
+        Node(int d) {
+            data = d;
+            next = null;
+        }
+    }
+
+    Node head;
+
+    // Insert the new Node at the front of the linkedlist
+    public void push(int new_data) {
+        Node new_Node = new Node(new_data);
+        new_Node.next = head;
+        head = new_Node;
+    }
+
+    // Check whether the value x is present or not in linkedlist
+    public boolean search(Node head, int x) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == x)
+                return true; // data found
+            current = current.next;
+        }
+        return false; // data not found
+    }
+
+    public static void main(String[] args) {
+        pwAssignment1 llist = new pwAssignment1();
+        llist.push(14);
+        llist.push(21);
+        llist.push(11);
+        llist.push(30);
+        llist.push(10);
+
+        if (llist.search(llist.head, 14)) { // Remove the leading zero from the search value
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
